@@ -6,12 +6,12 @@
 
 .phone__play-button {
   position: absolute;
-  top: 46%;
+  top: 44%;
   transform: translate(0, -50%);
 }
 
 .phone__phone-image--size {
-  width: 90%;
+  width: 80%;
 }
 
 .row {
