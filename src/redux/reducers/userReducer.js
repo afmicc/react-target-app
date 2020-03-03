@@ -1,9 +1,18 @@
 import createReducer from './createReducer';
-import { signInUser } from '../actions/userActions';
+import { signInUserSuccess, signInUserError } from '../actions/userActions';
 
-export default createReducer(
-  {},
-  {
-    [signInUser]: (state, { payload }) => ({ ...state, email: payload.email })
-  }
-);
+const intialState = {
+  value: undefined,
+  auth: undefined,
+  error: undefined
+};
+
+export default createReducer(intialState, {
+  [signInUserSuccess]: (state, { payload }) => ({
+    ...state,
+    value: payload.data,
+    auth: payload.headers,
+    error: undefined
+  }),
+  [signInUserError]: (state, { payload }) => ({ ...state, error: payload[0] })
+});

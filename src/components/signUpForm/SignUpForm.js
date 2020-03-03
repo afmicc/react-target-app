@@ -1,21 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './SignUpForm.css';
-// import * as userActions from '../../redux/actions/userActions';
-import { getCourses, addCourse } from '../../redux/actions/coursesActions';
 import * as userActions from '../../redux/actions/userActions';
 
 const SignUpForm = () => {
   const [user, setUser] = useState({ email: '', password: '' });
-  // const dispatch = useDispatch(userActions.signInUser(user));
-  const courses = useSelector(state => state.courses.list);
+  const error = useSelector(state => state.user.error);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getCourses());
-  }, []);
 
   const handleEmailChange = event => {
     const newUser = { ...user, email: event.target.value };
@@ -29,13 +22,15 @@ const SignUpForm = () => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    dispatch(addCourse({ title: user.email }));
-    dispatch(userActions.signInUser(user));
+    dispatch(userActions.signIn(user));
   };
 
   return (
     <>
       <form className="form" onSubmit={handleFormSubmit}>
+        <div className="form_error">
+          <span className="form_error__message">{error}</span>
+        </div>
         <div className="form_input">
           <span className="form_input__title">email</span>
           <input
@@ -62,13 +57,6 @@ const SignUpForm = () => {
           />
         </div>
       </form>
-
-      {courses.map(c => (
-        <span key={c.title}>
-          {c.title} - {c.slug}
-        </span>
-      ))}
-
       <NavLink to="/forgot-password" className="column__forgot-password">
         Forgot your password?
       </NavLink>
