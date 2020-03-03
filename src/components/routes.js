@@ -8,6 +8,6 @@ export default [
   { path: '/', component: HomePage, exact: true },
   { path: '/about', component: AboutPage },
   { path: '/contact', component: ContactPage },
-  { path: '/welcome', component: WelcomePage },
+  { path: '/welcome', component: WelcomePage, private: true },
   { component: NotFoundPage }
 ];
