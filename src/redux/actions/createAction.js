@@ -4,9 +4,9 @@ export const createAction = actionName => {
   return action;
 };
 
-export const createDispatcher = (func, params, success, error) => async dispatch => {
+export const createDispatcher = (func, success, error, ...params) => async dispatch => {
   try {
-    const data = await func(params);
+    const data = await func(...params);
     dispatch(success(data));
   } catch ({ errors }) {
     dispatch(error(errors));
