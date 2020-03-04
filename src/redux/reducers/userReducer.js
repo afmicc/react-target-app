@@ -12,5 +12,8 @@ export default createReducer(intialState, {
     value: data,
     auth: headers
   }),
-  [signInUserError]: (state, { payload }) => ({ ...state, error: payload[0] })
+  [signInUserError]: (state, { payload }) => ({
+    ...state,
+    error: (payload && payload[0]) || 'An error occured. Please try again.'
+  })
 });

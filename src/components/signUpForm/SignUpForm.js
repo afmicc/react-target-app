@@ -4,17 +4,25 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import './SignUpForm.css';
 import * as userActions from '../../redux/actions/userActions';
+import FormInput from '../common/formInput/FormInput';
 
 const SignUpForm = () => {
   const [user, setUser] = useState({ email: '', password: '' });
+  const [validation, setValidation] = useState({ email: undefined, password: undefined });
   const error = useSelector(state => state.user.error);
   const dispatch = useDispatch();
 
-  const handleFieldChange = ({ target: { value } }, key) => setUser({ ...user, [key]: value });
+  const handleFieldChange = ({ target: { value } }, key) => {
+    setUser({ ...user, [key]: value });
+    setValidation({ ...validation, [key]: validField(key, value) });
+  };
+
+  const validField = (key, value) => !!value;
+  const validForm = validation.email && validation.password;
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    dispatch(userActions.signIn(user));
+    if (validForm) dispatch(userActions.signIn(user));
   };
 
   return (
@@ -24,21 +32,20 @@ const SignUpForm = () => {
           <span className="form_error__message">{error}</span>
         </div>
         <div className="form_input">
-          <span className="form_input__title">email</span>
-          <input
-            type="text"
-            className="form_input__field"
+          <FormInput
+            title="email"
             value={user.email}
             onChange={event => handleFieldChange(event, 'email')}
+            valid={validation.email}
           />
         </div>
         <div className="form_input">
-          <span className="form_input__title">password</span>
-          <input
+          <FormInput
+            title="password"
             type="password"
-            className="form_input__field"
             value={user.password}
             onChange={event => handleFieldChange(event, 'password')}
+            valid={validation.password}
           />
         </div>
         <div className="form_input">
@@ -46,6 +53,7 @@ const SignUpForm = () => {
             type="submit"
             className="form_input__field form_input__field--color"
             value="sign in"
+            disabled={!validForm}
           />
         </div>
       </form>
