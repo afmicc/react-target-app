@@ -10,15 +10,8 @@ const SignUpForm = () => {
   const error = useSelector(state => state.user.error);
   const dispatch = useDispatch();
 
-  const handleEmailChange = event => {
-    const newUser = { ...user, email: event.target.value };
-    setUser(newUser);
-  };
-
-  const handlePasswordChange = event => {
-    const newUser = { ...user, password: event.target.value };
-    setUser(newUser);
-  };
+  const handleFieldChange = ({ target: { value } }, key) => 
+    setUser({ ...user, [key]: value });
 
   const handleFormSubmit = event => {
     event.preventDefault();
