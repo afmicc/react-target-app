@@ -10,8 +10,7 @@ const SignUpForm = () => {
   const error = useSelector(state => state.user.error);
   const dispatch = useDispatch();
 
-  const handleFieldChange = ({ target: { value } }, key) => 
-    setUser({ ...user, [key]: value });
+  const handleFieldChange = ({ target: { value } }, key) => setUser({ ...user, [key]: value });
 
   const handleFormSubmit = event => {
     event.preventDefault();
@@ -30,7 +29,7 @@ const SignUpForm = () => {
             type="text"
             className="form_input__field"
             value={user.email}
-            onChange={handleEmailChange}
+            onChange={event => handleFieldChange(event, 'email')}
           />
         </div>
         <div className="form_input">
@@ -39,7 +38,7 @@ const SignUpForm = () => {
             type="password"
             className="form_input__field"
             value={user.password}
-            onChange={handlePasswordChange}
+            onChange={event => handleFieldChange(event, 'password')}
           />
         </div>
         <div className="form_input">
