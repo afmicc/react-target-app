@@ -1,0 +1,25 @@
+.phone {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.phone__play-button {
+  position: absolute;
+  top: 46%;
+  transform: translate(0, -50%);
+}
+
+.phone__phone-image--size {
+  width: 90%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.row__icon {
+  margin: .5rem 1rem;
+}
