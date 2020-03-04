@@ -8,11 +8,9 @@ const intialState = {
 };
 
 export default createReducer(intialState, {
-  [signInUserSuccess]: (state, { payload }) => ({
-    ...state,
-    value: payload.data,
-    auth: payload.headers,
-    error: undefined
+  [signInUserSuccess]: (state, { payload: { data, headers } }) => ({
+    value: data,
+    auth: headers
   }),
   [signInUserError]: (state, { payload }) => ({ ...state, error: payload[0] })
 });
