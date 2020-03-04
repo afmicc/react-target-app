@@ -1,6 +1,9 @@
 
 .form,
 .form_input {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   margin-top: 2rem;
 }
 
@@ -34,6 +37,20 @@
   line-height: 15px;
   text-align: center;
   text-transform: uppercase;
+}
+
+.form_error {
+  min-height: 1rem;
+  width: 100%;
+}
+
+.form_error__message {
+  color: #EB2A2A;
+  font-size: 12px;
+  letter-spacing: 1.8px;
+  line-height: 14px;
+  text-align: center;
+  min-height: 1rem;
 }
 
 a {
