@@ -1,0 +1,79 @@
+
+.form,
+.form_input {
+  margin-top: 2rem;
+}
+
+.form_input__title {
+  display: block;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1.65px;
+  line-height: 15px;
+  margin: .5rem 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.form_input__field {
+  border: .07rem solid black;
+  box-sizing: border-box;
+  height: 2.5rem;
+  padding: .5rem;
+  width: 15rem;
+}
+
+.form_input__field--color {
+  background-color: black;
+  color: white;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1.65px;
+  line-height: 15px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.column__forgot-password {
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 15px;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.column__conect-with-facebook {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 2.4px;
+  line-height: 16px;
+  margin-bottom: .5rem;
+  margin-top: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.column__line {
+  border-bottom: 1px solid black;
+  min-width: 8rem;
+}
+
+.column__sign-up {
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1.65px;
+  line-height: 15px;
+  margin-top: .5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
