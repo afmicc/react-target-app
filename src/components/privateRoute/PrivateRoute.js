@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import routes from '../../constants/routes';
 
 const PrivateRoute = ({ component: Component, ...props }) => {
-  const authenticated = useSelector(state => state.user.auth);
+  const authenticated = useSelector(({ user: { auth }}) => auth);
 
   console.log('authenticated', authenticated);
   console.log('props', props);
