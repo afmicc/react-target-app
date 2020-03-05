@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './SignUpForm.css';
-import * as userActions from '../../redux/actions/userActions';
-import FormInput from '../common/formInput/FormInput';
+import * as userActions from 'redux/actions/userActions';
+import FormInput from 'components/common/formInput/FormInput';
 
 const SignUpForm = () => {
   const [user, setUser] = useState({ email: '', password: '' });

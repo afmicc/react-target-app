@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import './Menu.css';
-import iconOpen from '../../assets/menu_icon_open.svg';
-import iconClose from '../../assets/menu_icon_close.svg';
+import iconOpen from 'assets/menu_icon_open.svg';
+import iconClose from 'assets/menu_icon_close.svg';
 
 const Menu = () => {
   const [visible, setVisible] = useState(false);

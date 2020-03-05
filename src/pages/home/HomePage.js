@@ -3,10 +3,10 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import './HomePage.css';
-import smilies from '../../assets/smilies.svg';
-import LandingSidebar from '../../components/landingSidebar/LandingSidebar';
-import SignUpForm from '../../components/signUpForm/SignUpForm';
-import routes from '../../constants/routes';
+import smilies from 'assets/smilies.svg';
+import LandingSidebar from 'components/landingSidebar/LandingSidebar';
+import SignUpForm from 'components/signUpForm/SignUpForm';
+import routes from 'constants/routes';
 
 const HomePage = () => {
   const authenticated = useSelector(state => state.user.auth);
