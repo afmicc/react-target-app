@@ -7,7 +7,7 @@
   margin-top: 2rem;
 }
 
-.form_input__title {
+.form_input__label {
   display: block;
   font-size: 11px;
   font-style: normal;
@@ -37,6 +37,10 @@
   line-height: 15px;
   text-align: center;
   text-transform: uppercase;
+}
+
+.form_input__field--color:disabled {
+  background-color: #302f2f;
 }
 
 .form_error {
@@ -93,4 +97,9 @@ a {
   margin-top: .5rem;
   text-align: center;
   text-transform: uppercase;
+}
+
+.form_input__field--error {
+  border: 1.5px solid #eb2a2a;
+  box-sizing: border-box;
 }
