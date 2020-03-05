@@ -8,8 +8,6 @@ import routes from '../../constants/routes';
 const PrivateRoute = ({ component: Component, ...props }) => {
   const authenticated = useSelector(({ user: { auth }}) => auth);
 
-  console.log('authenticated', authenticated);
-  console.log('props', props);
   return (
     <Route
       {...props}

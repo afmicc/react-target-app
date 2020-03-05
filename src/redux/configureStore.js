@@ -9,12 +9,12 @@ export default function configureStore(initialState = {}) {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const persistConfig = { key: 'targetMVD', storage, whitelist: ['user'] };
 
-  let store = createStore(
+  const store = createStore(
     persistReducer(persistConfig, rootReducer),
     initialState,
     composeEnhancers(applyMiddleware(thunk, reduxImmutableStateInvariant()))
   );
-  let persistor = persistStore(store);
+  const persistor = persistStore(store);
 
   return { store, persistor };
 }
