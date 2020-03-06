@@ -18,7 +18,7 @@ const HomePage = () => {
   return (
     <div className="page-container">
       <div className="column column--side-padding">
-        <Header header={'Target MVD'} subheader={'Find people near you'} />
+        <Header header="Target MVD" subheader="Find people near you" />
         <p className="column__text">
           Create a target wherever on the map, specify your interest: Travel, Dating, Music, etc and
           start conecting with others who share your interest.
