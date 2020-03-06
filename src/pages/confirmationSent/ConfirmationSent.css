@@ -1,0 +1,7 @@
+.column__header--no-transform {
+  text-transform: none;
+}
+
+.column--center-content {
+  justify-content: center;
+}

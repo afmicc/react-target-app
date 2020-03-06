@@ -1,5 +1,10 @@
 import createReducer from './createReducer';
-import { signInUserSuccess, signInUserError } from 'redux/actions/userActions';
+import {
+  signInUserSuccess,
+  signInUserError,
+  signUpSuccess,
+  signUpError
+} from 'redux/actions/userActions';
 
 const intialState = {
   value: undefined,
@@ -15,5 +20,12 @@ export default createReducer(intialState, {
   [signInUserError]: (state, { payload }) => ({
     ...state,
     error: (payload && payload[0]) || 'An error occured. Please try again.'
+  }),
+  [signUpSuccess]: (state, { payload }) => ({ value: payload }),
+  [signUpError]: (state, { payload }) => ({
+    ...state,
+    error:
+      (payload && payload.full_messages && payload.full_messages[0]) ||
+      'An error occured. Please try again.'
   })
 });
