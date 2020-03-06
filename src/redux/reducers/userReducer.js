@@ -1,5 +1,5 @@
 import createReducer from './createReducer';
-import { signInUserSuccess, signInUserError } from '../actions/userActions';
+import { signInUserSuccess, signInUserError } from 'redux/actions/userActions';
 
 const intialState = {
   value: undefined,

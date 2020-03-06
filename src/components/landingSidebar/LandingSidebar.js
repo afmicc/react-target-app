@@ -1,10 +1,10 @@
 import React from 'react';
 
-import i6Phone from '../../assets/i6.svg';
-import play from '../../assets/play.svg';
-import appStore from '../../assets/appstore-button.svg';
-import facebook from '../../assets/Facebook.svg';
-import twitter from '../../assets/Twitter.svg';
+import i6Phone from 'assets/i6.svg';
+import play from 'assets/play.svg';
+import appStore from 'assets/appstore-button.svg';
+import facebook from 'assets/Facebook.svg';
+import twitter from 'assets/Twitter.svg';
 import './LandingSidebar.css';
 
 const LandingSidebar = () => (
