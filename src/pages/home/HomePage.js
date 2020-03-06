@@ -3,9 +3,9 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import './HomePage.css';
-import smilies from 'assets/smilies.svg';
 import LandingSidebar from 'components/landingSidebar/LandingSidebar';
 import SignUpForm from 'components/signUpForm/SignUpForm';
+import Header from 'components/common/header/Header';
 import routes from 'constants/routes';
 
 const HomePage = () => {
@@ -16,11 +16,9 @@ const HomePage = () => {
   }
 
   return (
-    <div className="home-page-container">
+    <div className="page-container">
       <div className="column column--side-padding">
-        <img src={smilies} alt="smilies"></img>
-        <span className="column__header">Target MVD</span>
-        <span className="column__subheader">Find people near you</span>
+        <Header header={'Target MVD'} subheader={'Find people near you'} />
         <p className="column__text">
           Create a target wherever on the map, specify your interest: Travel, Dating, Music, etc and
           start conecting with others who share your interest.

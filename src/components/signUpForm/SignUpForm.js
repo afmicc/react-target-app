@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './SignUpForm.css';
 import * as userActions from 'redux/actions/userActions';
 import FormInput from 'components/common/formInput/FormInput';
+import Button from 'components/common/button/Button';
 
 const SignUpForm = () => {
   const [user, setUser] = useState({ email: '', password: '' });
@@ -48,14 +49,7 @@ const SignUpForm = () => {
             valid={validation.password}
           />
         </div>
-        <div className="form_input">
-          <input
-            type="submit"
-            className="form_input__field form_input__field--color"
-            value="sign in"
-            disabled={!validForm}
-          />
-        </div>
+        <Button submit value="sign in" disabled={!validForm} />
       </form>
       <NavLink to="/forgot-password" className="column__forgot-password">
         Forgot your password?
