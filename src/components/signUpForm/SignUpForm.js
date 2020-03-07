@@ -1,57 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './SignUpForm.css';
-import * as userActions from 'redux/actions/userActions';
+import { signUp } from 'redux/actions/userActions';
 import FormInput from 'components/common/formInput/FormInput';
 import FormSelect from 'components/common/formSelect/FormSelect';
+import useForm from 'hooks/useForm';
+
+const config = {
+  username: { presence: true },
+  email: { presence: true },
+  password: { presence: true, minLength: 8 },
+  confirmPassword: { presence: true, equalsTo: 'password' },
+  gender: { presence: true }
+};
+
+const genders = [
+  { key: '', value: 'Select your gender' },
+  { key: 'male', value: 'Male' },
+  { key: 'female', value: 'Female' },
+  { key: 'other', value: 'Other' }
+];
 
 const SignUpForm = () => {
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    gender: ''
-  });
-  const [validation, setValidation] = useState({
-    name: undefined,
-    email: undefined,
-    password: undefined,
-    confirmPassword: undefined,
-    gender: undefined
-  });
-  const error = useSelector(({ user: { error } }) => error);
+  const { data, validation, validForm, handleFieldChange } = useForm(config);
+
   const dispatch = useDispatch();
-
-  const handleFieldChange = ({ target: { value } }, key, params) => {
-    setUser({ ...user, [key]: value });
-    setValidation({ ...validation, [key]: validField(key, value, params) });
-  };
-
-  const validField = (key, value, params) =>
-    ({
-      name: () => !!value,
-      email: () => !!value,
-      gender: () => !!value,
-      password: () => !!value && value.length >= 8,
-      confirmPassword: () => !!value && !!params.compareTo && value === params.compareTo
-    }[key]() || false);
-
-  const validForm = Object.values(validation).reduce((acc, value) => acc && value);
+  const error = useSelector(({ user: { error } }) => error);
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    if (validForm) dispatch(userActions.signUp(user));
+    if (validForm) dispatch(signUp(data));
   };
-
-  const genders = [
-    { key: '', value: 'Select your gender' },
-    { key: 'male', value: 'Male' },
-    { key: 'female', value: 'Female' },
-    { key: 'other', value: 'Other' }
-  ];
 
   return (
     <>
@@ -62,16 +43,16 @@ const SignUpForm = () => {
         <div className="form_input">
           <FormInput
             title="name"
-            value={user.name}
-            onChange={event => handleFieldChange(event, 'name')}
-            valid={validation.name}
+            value={data.username}
+            onChange={handleFieldChange('username')}
+            valid={validation.username}
           />
         </div>
         <div className="form_input">
           <FormInput
             title="email"
-            value={user.email}
-            onChange={event => handleFieldChange(event, 'email')}
+            value={data.email}
+            onChange={handleFieldChange('email')}
             valid={validation.email}
           />
         </div>
@@ -79,8 +60,8 @@ const SignUpForm = () => {
           <FormInput
             title="password"
             type="password"
-            value={user.password}
-            onChange={event => handleFieldChange(event, 'password')}
+            value={data.password}
+            onChange={handleFieldChange('password')}
             valid={validation.password}
             placeholder=""
           />
@@ -89,18 +70,16 @@ const SignUpForm = () => {
           <FormInput
             title="confirm password"
             type="password"
-            value={user.confirmPassword}
-            onChange={event =>
-              handleFieldChange(event, 'confirmPassword', { compareTo: user.password })
-            }
+            value={data.confirmPassword}
+            onChange={handleFieldChange('confirmPassword')}
             valid={validation.confirmPassword}
           />
         </div>
         <div className="form_input">
           <FormSelect
             title="gender"
-            value={user.gender}
-            onChange={event => handleFieldChange(event, 'gender')}
+            value={data.gender}
+            onChange={handleFieldChange('gender')}
             valid={validation.gender}
             options={genders}
           />

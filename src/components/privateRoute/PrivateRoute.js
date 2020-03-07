@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
+import { func } from 'prop-types';
 
 import routes from 'constants/routes';
 
@@ -19,7 +19,7 @@ const PrivateRoute = ({ component: Component, ...props }) => {
 };
 
 PrivateRoute.propTypes = {
-  component: PropTypes.node.isRequired
+  component: func.isRequired
 };
 
 export default PrivateRoute;
