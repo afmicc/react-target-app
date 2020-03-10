@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
 import './Modal.css';
 import close from 'assets/close.svg';
-import ContactForm from 'components/ContactForm';
+import ModalContext from './ModalContext';
 
 const Modal = () => {
-  const [visible, setVisible] = useState(true);
+  const { modal, setModal } = useContext(ModalContext);
 
-  if (!visible) return <></>;
+  if (!modal.visible) return <></>;
   return (
     <div className="modal-background">
       <div className="modal-container">
@@ -16,11 +16,10 @@ const Modal = () => {
             src={close}
             alt="close"
             className="modal-cross__close-icon"
-            onClick={() => setVisible(!visible)}
+            onClick={() => setModal({ ...modal, visible: false })}
           ></img>
         </div>
-
-        <ContactForm />
+        {modal.component}
       </div>
     </div>
   );

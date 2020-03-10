@@ -5,6 +5,6 @@
 }
 
 .form_input__field--text-area {
-  min-height: 15rem;
+  min-height: 10rem;
   resize: none;
 }

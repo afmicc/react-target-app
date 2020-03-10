@@ -21,7 +21,6 @@ const rules = {
 
 const ContactForm = () => {
   const { data, validation, validForm, handleFieldChange } = useForm(rules);
-  const error = useSelector(({ contactAdministrator: { error } }) => error);
 
   const dispatch = useDispatch();
   const handleFormSubmit = event => {
@@ -29,13 +28,35 @@ const ContactForm = () => {
     if (validForm) dispatch(contactAdministrator(data));
   };
 
+  const error = useSelector(({ contactAdministrator: { error } }) => error);
+  const success = useSelector(({ contactAdministrator: { value } }) => value);
+
+  if (error) {
+    return (
+      <>
+        <Header subheader="Opps!" />
+        <p className="column__text column__text--justified">
+          An error has occured while sending your message.
+        </p>
+      </>
+    );
+  }
+
+  if (success) {
+    return (
+      <>
+        <Header subheader="Thanks for getting in touch! " />
+        <p className="column__text column__text--justified">
+          We’ll get back to you as soon as we can.
+        </p>
+      </>
+    );
+  }
+
   return (
     <>
       <Header subheader="Don’t be shy, drop us a line!" />
       <form className="form" onSubmit={handleFormSubmit}>
-        <div className="form_error">
-          <span className="form_error__message">{error}</span>
-        </div>
         <div className="form_input form_input--full-width form_input--full-width">
           <FormInput
             title="email *"
