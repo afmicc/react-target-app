@@ -1,0 +1,42 @@
+.home-column-left {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+  flex-basis: 25%;
+  justify-content: center;
+  padding-top: 5rem;
+}
+
+.home-column-right {
+  flex-basis: 75%;
+}
+
+.column__header--no-bold {
+  font-weight: normal;
+}
+
+.home-list {
+  padding: 2.5rem;
+}
+
+.home-list__option {
+  display: flex;
+  justify-content: start;
+}
+
+.home-list__bullet::before {
+  color: #2fbcf7;
+  content: "\2022";
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.home-list__label {
+  font-size: 14px;
+  line-height: 26px;
+  padding: 0 .5rem;
+  text-align: justify;
+}
+
+.home-list__bullet,
+.home-list__label {
+  margin: 1rem 0;
+}
