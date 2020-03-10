@@ -1,0 +1,10 @@
+
+.form_input--full-width,
+.form_input--full-width > .form_input__field {
+  width: 100%;
+}
+
+.form_input__field--text-area {
+  min-height: 15rem;
+  resize: none;
+}

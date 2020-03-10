@@ -44,6 +44,8 @@
 }
 
 .form_error {
+  display: flex;
+  justify-content: center;
   min-height: 1rem;
   width: 100%;
 }
