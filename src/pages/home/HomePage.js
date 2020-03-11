@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import './HomePage.css';
 import LandingSidebar from 'components/landingSidebar/LandingSidebar';
-import SignUpForm from 'components/signUpForm/SignUpForm';
+import SignInForm from 'components/signInForm/SignInForm';
 import Header from 'components/common/header/Header';
 import routes from 'constants/routes';
 
@@ -23,7 +23,7 @@ const HomePage = () => {
           Create a target wherever on the map, specify your interest: Travel, Dating, Music, etc and
           start conecting with others who share your interest.
         </p>
-        <SignUpForm />
+        <SignInForm />
       </div>
       <LandingSidebar />
     </div>

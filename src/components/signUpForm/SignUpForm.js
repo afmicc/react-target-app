@@ -1,29 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './SignUpForm.css';
-import * as userActions from 'redux/actions/userActions';
+import { signUp } from 'redux/actions/userActions';
 import FormInput from 'components/common/formInput/FormInput';
-import Button from 'components/common/button/Button';
+import FormSelect from 'components/common/formSelect/FormSelect';
+import useForm from 'hooks/useForm';
+
+const config = {
+  username: { presence: true },
+  email: { presence: true },
+  password: { presence: true, minLength: 8 },
+  confirmPassword: { presence: true, equalsTo: 'password' },
+  gender: { presence: true }
+};
+
+const genders = [
+  { key: '', value: 'Select your gender' },
+  { key: 'male', value: 'Male' },
+  { key: 'female', value: 'Female' },
+  { key: 'other', value: 'Other' }
+];
 
 const SignUpForm = () => {
-  const [user, setUser] = useState({ email: '', password: '' });
-  const [validation, setValidation] = useState({ email: undefined, password: undefined });
-  const error = useSelector(state => state.user.error);
+  const { data, validation, validForm, handleFieldChange } = useForm(config);
+
   const dispatch = useDispatch();
-
-  const handleFieldChange = ({ target: { value } }, key) => {
-    setUser({ ...user, [key]: value });
-    setValidation({ ...validation, [key]: validField(key, value) });
-  };
-
-  const validField = (key, value) => !!value;
-  const validForm = validation.email && validation.password;
+  const error = useSelector(({ user: { error } }) => error);
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    if (validForm) dispatch(userActions.signIn(user));
+    if (validForm) dispatch(signUp(data));
   };
 
   return (
@@ -34,9 +42,17 @@ const SignUpForm = () => {
         </div>
         <div className="form_input">
           <FormInput
+            title="name"
+            value={data.username}
+            onChange={handleFieldChange('username')}
+            valid={validation.username}
+          />
+        </div>
+        <div className="form_input">
+          <FormInput
             title="email"
-            value={user.email}
-            onChange={event => handleFieldChange(event, 'email')}
+            value={data.email}
+            onChange={handleFieldChange('email')}
             valid={validation.email}
           />
         </div>
@@ -44,22 +60,42 @@ const SignUpForm = () => {
           <FormInput
             title="password"
             type="password"
-            value={user.password}
-            onChange={event => handleFieldChange(event, 'password')}
+            value={data.password}
+            onChange={handleFieldChange('password')}
             valid={validation.password}
+            placeholder=""
           />
         </div>
-        <Button submit value="sign in" disabled={!validForm} />
+        <div className="form_input">
+          <FormInput
+            title="confirm password"
+            type="password"
+            value={data.confirmPassword}
+            onChange={handleFieldChange('confirmPassword')}
+            valid={validation.confirmPassword}
+          />
+        </div>
+        <div className="form_input">
+          <FormSelect
+            title="gender"
+            value={data.gender}
+            onChange={handleFieldChange('gender')}
+            valid={validation.gender}
+            options={genders}
+          />
+        </div>
+        <div className="form_input">
+          <input
+            type="submit"
+            className="form_input__field form_input__field--color"
+            value="sign up"
+            disabled={!validForm}
+          />
+        </div>
       </form>
-      <NavLink to="/forgot-password" className="column__forgot-password">
-        Forgot your password?
-      </NavLink>
-      <NavLink to="/facebook-login" className="column__conect-with-facebook">
-        connect with facebook
-      </NavLink>
-      <div className="column__line"></div>
-      <NavLink to="/sign-up" className="column__sign-up">
-        sign up
+      <div className="column__line column__line--margin"></div>
+      <NavLink to="/" className="column__sign-up">
+        sign in
       </NavLink>
     </>
   );
