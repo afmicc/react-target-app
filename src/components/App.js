@@ -10,12 +10,13 @@ import { ModalProvider } from './common/Modal/ModalContext';
 
 function App() {
   const [modal, setModal] = useState({ visible: false, component: <></> });
+  console.log('modal', modal);
 
   return (
-    <ModalProvider value={{ modal, setModal }}>
+    <ModalProvider value={{ setModal }}>
       <div className="App">
         <Menu />
-        <Modal />
+        <Modal config={modal} />
         <Switch>
           {routes.map((route, index) =>
             route.private ? (

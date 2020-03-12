@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
+import { bool, node, shape } from 'prop-types';
 
 import './Modal.css';
 import close from 'assets/close.svg';
 import ModalContext from './ModalContext';
 
-const Modal = () => {
-  const { modal, setModal } = useContext(ModalContext);
+const Modal = ({ config: { visible, component } }) => {
+  const { setModal } = useContext(ModalContext);
+  console.log('visible', visible);
 
-  if (!modal.visible) return <></>;
+  if (!visible) return <></>;
   return (
     <div className="modal-background">
       <div className="modal-container">
@@ -16,13 +18,20 @@ const Modal = () => {
             src={close}
             alt="close"
             className="modal-cross__close-icon"
-            onClick={() => setModal({ ...modal, visible: false })}
+            onClick={() => setModal({ visible: false })}
           ></img>
         </div>
-        {modal.component}
+        {component}
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  config: shape({
+    visible: bool.isRequired,
+    component: node
+  })
 };
 
 export default Modal;

@@ -11,11 +11,11 @@ import ContactForm from 'components/ContactForm';
 const Menu = () => {
   const [visible, setVisible] = useState(false);
   const toggle = () => setVisible(!visible);
-  const { modal, setModal } = useContext(ModalContext);
+  const { setModal } = useContext(ModalContext);
 
   const handleContact = event => {
     event.preventDefault();
-    setModal({ ...modal, visible: true, component: <ContactForm /> });
+    setModal({ visible: true, component: <ContactForm /> });
     toggle();
   };
 

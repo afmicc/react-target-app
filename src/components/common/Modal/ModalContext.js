@@ -1,3 +1,7 @@
 import React from 'react';
 
-export const { Provider: ModalProvider, Consumer: ModalConsumer } = React.createContext();
+const ModalContext = React.createContext();
+
+export const { Provider: ModalProvider, Consumer: ModalConsumer } = ModalContext;
+
+export default ModalContext;
