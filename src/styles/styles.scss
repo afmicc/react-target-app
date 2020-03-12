@@ -1,0 +1,179 @@
+@import './constants.scss';
+
+html {
+  font-size: $baseFontSize;
+}
+
+body {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "OpenSans",
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+  font-size: $mediumFontSize;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+// General
+
+.page-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100vh;
+}
+
+.column {
+  align-items: center;
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding-top: 2rem;
+}
+
+.column--backgroud {
+  background-color: $skyblueBackgroundColor;
+}
+
+.column--align_content {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.column__header {
+  font-size: $headerFontSize;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 3px;
+  line-height: $headerFontHeight;
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+
+.column__subheader {
+  font-size: $subheaderFontSize;
+  font-style: normal;
+  font-weight: 600;
+  line-height: $subheaderFontHeight;
+}
+
+.column__text {
+  font-size: $mediumFontSize;
+  line-height: $mediumFontHeight;
+  padding: 0 5rem;
+  text-align: center;
+}
+
+// Form inputs
+
+
+.form,
+.form_input {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.form_input__label {
+  display: block;
+  font-size: $smallFontSize;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1.65px;
+  line-height: $smallFontHeight;
+  margin: .5rem 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.form_input__field {
+  border: .07rem solid black;
+  box-sizing: border-box;
+  height: 2.5rem;
+  padding: .5rem;
+  width: 15rem;
+}
+
+.form_input__field--color {
+  background-color: black;
+  color: white;
+  font-size: $smallFontSize;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1.65px;
+  line-height: $smallFontHeight;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.form_input__field--color:disabled {
+  background-color: $disabledInputColor;
+}
+
+.form_error {
+  display: flex;
+  justify-content: center;
+  min-height: 1rem;
+  width: 100%;
+}
+
+.form_error__message {
+  color: $errorColor;
+  font-size: $smallFontSize;
+  letter-spacing: 1.8px;
+  line-height: $smallFontHeight;
+  min-height: 1rem;
+  text-align: center;
+}
+
+.form_input__field--error {
+  border: 1.5px solid $errorColor;
+  box-sizing: border-box;
+}
+
+.form_input--full-width,
+.form_input--full-width > .form_input__field {
+  width: 100%;
+}
+
+.form_input__field--text-area {
+  min-height: 10rem;
+  resize: none;
+}
+
+.form_input__select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  font-size: $smallFontSize;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1.65px;
+  line-height: $smallFontHeight;
+  text-transform: uppercase;
+}
+
+.form_input__select--centered-text {
+  text-align: center;
+  -moz-text-align-last: center;
+  text-align-last: center;
+}

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
-import './Menu.css';
+import './Menu.scss';
 import iconOpen from 'assets/menu_icon_open.svg';
 import iconClose from 'assets/menu_icon_close.svg';
 import ModalContext from 'components/common/Modal/ModalContext';

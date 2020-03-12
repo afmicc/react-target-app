@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './AboutPage.css';
+import './AboutPage.scss';
 import LandingSidebar from '../../components/landingSidebar/LandingSidebar';
 import Button from '../../components/common/button/Button';
 import Header from '../../components/common/header/Header';

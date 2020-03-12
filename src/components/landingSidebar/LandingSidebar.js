@@ -5,7 +5,7 @@ import play from 'assets/play.svg';
 import appStore from 'assets/appstore-button.svg';
 import facebook from 'assets/Facebook.svg';
 import twitter from 'assets/Twitter.svg';
-import './LandingSidebar.css';
+import './LandingSidebar.scss';
 
 const LandingSidebar = () => (
   <div className="column column--backgroud column--align_content">

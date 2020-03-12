@@ -7,8 +7,8 @@ const Header = ({ header, subheader }) => {
   return (
     <>
       <img src={smilies} alt="smilies"></img>
-      <span className="column__header">{header}</span>
-      <span className="column__subheader">{subheader}</span>
+      <h1 className="column__header">{header}</h1>
+      <h2 className="column__subheader">{subheader}</h2>
     </>
   );
 };

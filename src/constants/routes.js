@@ -4,5 +4,6 @@ export default {
   about: '/about',
   contact: '/contact',
   welcome: '/welcome',
-  confirmationSent: '/confirmation-sent'
+  confirmationSent: '/confirmation-sent',
+  dashboard: '/dashboard'
 };

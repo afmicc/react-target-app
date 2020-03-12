@@ -2,7 +2,6 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import './HomePage.css';
 import LandingSidebar from 'components/landingSidebar/LandingSidebar';
 import SignInForm from 'components/signInForm/SignInForm';
 import Header from 'components/common/header/Header';

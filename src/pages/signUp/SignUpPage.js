@@ -14,7 +14,7 @@ export const SignUpPage = () => {
   return (
     <div className="page-container">
       <div className="column column--side-padding">
-        <span className="column__header">SIGN UP</span>
+        <h1 className="column__header">SIGN UP</h1>
         <SignUpForm />
       </div>
       <LandingSidebar />
