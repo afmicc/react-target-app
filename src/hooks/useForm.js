@@ -59,6 +59,9 @@ const runValidations = (fieldName, fieldValidations, fields, fieldsTouched) => {
       case 'equalsTo':
         if (params) valid = valid && fieldValue === fields[params];
         break;
+      case 'regex':
+        if (params) valid = valid && !!fieldValue.match(params);
+        break;
       default:
         valid = false;
         break;
