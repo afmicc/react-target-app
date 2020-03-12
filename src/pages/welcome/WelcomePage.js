@@ -8,7 +8,7 @@ import smilies from 'assets/smilies.svg';
 import Button from 'components/common/button/Button';
 
 const WelcomePage = () => {
-  const authenticated = useSelector(state => state.user.auth);
+  const authenticated = useSelector(({ user: auth }) => auth);
   const history = useHistory();
   const hangleClick = () => history.push('/dashboard');
 
