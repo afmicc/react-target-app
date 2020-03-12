@@ -2,7 +2,7 @@ import HomePage from 'pages/home/HomePage';
 import AboutPage from 'pages/about/AboutPage';
 import ContactPage from 'pages/contact/ContactPage';
 import NotFoundPage from 'pages/notFound/NotFoundPage';
-import WelcomePage from 'pages/welcome/Welcome';
+import WelcomePage from 'pages/welcome/WelcomePage';
 import SignUpPage from 'pages/signUp/SignUpPage';
 import ConfirmationSent from 'pages/confirmationSent/ConfirmationSent';
 
