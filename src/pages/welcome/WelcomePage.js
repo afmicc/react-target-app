@@ -9,7 +9,7 @@ import Button from 'components/common/button/Button';
 
 const WelcomePage = () => {
   const authenticated = useSelector(state => state.user.auth);
-  let history = useHistory();
+  const history = useHistory();
   const hangleClick = () => history.push('/dashboard');
 
   if (!authenticated) {
