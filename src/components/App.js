@@ -10,7 +10,6 @@ import { ModalProvider } from './common/Modal/ModalContext';
 
 function App() {
   const [modal, setModal] = useState({ visible: false, component: <></> });
-  console.log('modal', modal);
 
   return (
     <ModalProvider value={{ setModal }}>
