@@ -15,3 +15,8 @@ export const getProfileSuccess = createAction('GET_PROFILE_USER_SUCCESS');
 export const getProfileError = createAction('GET_PROFILE_USER_ERROR');
 export const getProfile = params =>
   createDispatcher(userApi.getProfile, getProfileSuccess, getProfileError, params);
+
+export const logoutSuccess = createAction('LOG_OUT_USER_SUCCESS');
+export const logoutError = createAction('LOG_OUT_USER_ERROR');
+export const logout = params =>
+  createDispatcher(userApi.logout, logoutSuccess, logoutError, params);

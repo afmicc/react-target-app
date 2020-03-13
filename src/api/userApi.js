@@ -42,3 +42,16 @@ export const getProfile = async id => {
     handleError(error);
   }
 };
+
+export const logout = async () => {
+  try {
+    const response = await fetch(`${baseUrl}/users/sign_out`, {
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json' }
+    });
+
+    return handleResponse(response);
+  } catch (error) {
+    handleError(error);
+  }
+};
