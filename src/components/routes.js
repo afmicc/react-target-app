@@ -4,6 +4,7 @@ import NotFoundPage from 'pages/notFound/NotFoundPage';
 import WelcomePage from 'pages/welcome/WelcomePage';
 import SignUpPage from 'pages/signUp/SignUpPage';
 import ConfirmationSent from 'pages/confirmationSent/ConfirmationSent';
+import DashboardPage from 'pages/DashboardPage';
 
 import routes from 'constants/routes';
 
@@ -13,5 +14,6 @@ export default [
   { path: routes.about, component: AboutPage },
   { path: routes.welcome, component: WelcomePage, private: true },
   { path: routes.confirmationSent, component: ConfirmationSent },
+  { path: routes.dashboard, component: DashboardPage, private: true },
   { component: NotFoundPage }
 ];

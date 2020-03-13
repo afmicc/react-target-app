@@ -1,0 +1,109 @@
+@import 'styles/constants';
+
+.inside-column-left--display-content-beginning {
+  justify-content: start;
+  padding-top: 0;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.profile-container__profile-picture {
+  align-items: center;
+  background-color: $skyblueBackgroundColor;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.profile-container__username {
+  font-size: $mediumFontSize;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 2.1px;
+  line-height: $mediumFontHeight;
+  margin-bottom: .5rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.profile-container__buttons {
+  cursor: pointer;
+  font-size: $smallFontSize;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 1.8px;
+  line-height: $smallFontHeight;
+  padding: 0 .5rem;
+}
+
+.profile-container__buttons--edit-color {
+  color: $skyblueBackgroundColor;
+}
+
+.column__line--margin-top {
+  margin-top: 1rem;
+}
+
+.column__body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+  justify-content: center;
+}
+
+.column__header--text-center {
+  text-align: center;
+}
+
+.column__body > .column__subheader {
+  margin: 4rem 2rem;
+}
+
+.popular-target-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: .5rem;
+}
+
+.popular-target-label {
+  font-size: $mediumFontSize;
+  font-style: normal;
+  font-weight: 600;
+  line-height: $subheaderFontHeight;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.popular-target-list__option {
+  align-items: center;
+  display: flex;
+  margin: .5rem 0;
+}
+
+.popular-target-list__option__icon {
+  margin: 0 .5rem;
+}
+
+.popular-target-list__option__label {
+  font-size: $smallFontSize;
+  letter-spacing: 1.95px;
+  line-height: $smallFontHeight;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.column__footer {
+  bottom: .65rem;
+  max-height: 2.5rem;
+  position: absolute;
+  width: 100%;
+}
