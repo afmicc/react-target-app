@@ -1,0 +1,41 @@
+@import 'styles/constants';
+
+.form__input__select {
+  cursor: pointer;
+  text-align: left;
+  z-index: 20;
+}
+
+.form__input__select__options {
+  background-color: white;
+  max-height: 25%;
+  overflow: auto;
+  position: absolute;
+  top: 50%;
+}
+
+.form__input__select__option {
+  border: .5px solid black;
+  border-top: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  font-size: $inputFontSize;
+  font-style: normal;
+  font-weight: 600;
+  height: 2.5rem;
+  letter-spacing: 1.95px;
+  line-height: $inputFontHeight;
+  padding: .5rem;
+  text-align: left;
+  width: 15rem;
+
+  &:hover {
+    background: $selectOptionHoverColor;
+  }
+}
+
+.form__input__select__icon {
+  margin: 0 1rem;
+  max-width: 1rem;
+}

@@ -1,0 +1,15 @@
+.column__body--full-content {
+  height: 100%;
+  justify-content: flex-start;
+
+  .form {
+    height: 100%;
+  }
+}
+
+.form__footer {
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}

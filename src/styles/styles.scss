@@ -85,7 +85,6 @@ button {
 
 // Form inputs
 
-
 .form,
 .form_input {
   align-items: center;
@@ -109,9 +108,30 @@ button {
 .form_input__field {
   border: .07rem solid black;
   box-sizing: border-box;
+  font-size: $inputFontSize;
+  font-style: normal;
+  font-weight: 600;
   height: 2.5rem;
+  letter-spacing: 1.95px;
+  line-height: $inputFontHeight;
   padding: .5rem;
+  text-align: center;
   width: 15rem;
+}
+
+.form_input__field::placeholder,
+.form_input__field__placeholder {
+  color: #000;
+  font-size: $placeholderFontSize;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: .7px;
+  line-height: $placeholderFontHeight;
+  padding: .5rem;
+}
+
+.form_input__field__placeholder::first-letter {
+  text-transform: uppercase;
 }
 
 .form_input__field--color {
