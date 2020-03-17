@@ -4,8 +4,8 @@ import {
   getTargetsError,
   addTargetSuccess,
   addTargetError,
-  createTargetSuccess,
-  createTargetError
+  saveTargetSuccess,
+  saveTargetError
 } from 'redux/actions/targetAction';
 
 const intialState = {
@@ -32,12 +32,12 @@ export default createReducer(intialState, {
     ...state,
     error: (payload && payload[0]) || 'An error occured. Please try again.'
   }),
-  [createTargetSuccess]: (state, { payload }) => ({
+  [saveTargetSuccess]: (state, { payload }) => ({
     ...state,
     value: undefined,
     values: [...state.values, payload]
   }),
-  [createTargetError]: (state, { payload }) => ({
+  [saveTargetError]: (state, { payload }) => ({
     ...state,
     error: (payload && payload[0]) || 'An error occured. Please try again.'
   })

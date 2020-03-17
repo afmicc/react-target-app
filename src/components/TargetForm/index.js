@@ -7,7 +7,7 @@ import Button from 'components/common/button/Button';
 import Select from 'components/common/Select';
 import newTarget from 'assets/new_target.svg';
 
-import { createTarget } from 'redux/actions/targetAction';
+import { saveTarget } from 'redux/actions/targetAction';
 
 const config = {
   title: { presence: true },
@@ -28,7 +28,7 @@ const TargetForm = () => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    if (validTarget) dispatch(createTarget({ ...data, lat, lng }));
+    if (validTarget) dispatch(saveTarget({ ...data, lat, lng }));
   };
 
   return (

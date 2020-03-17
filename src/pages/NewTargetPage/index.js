@@ -1,14 +1,25 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import './NewTargetPage.scss';
 import smilies from 'assets/smilies.svg';
+import backArrow from 'assets/back_arrow.svg';
 
-import TargetsMap from 'components/TargetsMap';
 import TargetForm from 'components/TargetForm';
+import withMap from 'components/HOCs/withMap';
 
-const NewTargetPage = () => (
-  <div className="page-container">
+const NewTargetPage = () => {
+  const history = useHistory();
+  const handleGoBack = () => history.goBack();
+
+  return (
     <div className="column inside-column-left inside-column-left--display-content-beginning">
+      <div className="column__bar">
+        <div className="column__bar__back-arrow" onClick={handleGoBack}>
+          <img src={backArrow} alt="back arrow" />
+        </div>
+        <span className="column__bar__label">CREATE TARGET</span>
+      </div>
       <div className="column__body column__body--full-content">
         <TargetForm />
       </div>
@@ -16,11 +27,7 @@ const NewTargetPage = () => (
         <img src={smilies} alt="smilies" className="column__footer" />
       </div>
     </div>
+  );
+};
 
-    <div className="column home-column-right">
-      <TargetsMap />
-    </div>
-  </div>
-);
-
-export default NewTargetPage;
+export default withMap(NewTargetPage);

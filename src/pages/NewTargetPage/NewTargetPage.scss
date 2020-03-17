@@ -1,3 +1,5 @@
+@import 'styles/constants';
+
 .column__body--full-content {
   height: 100%;
   justify-content: flex-start;
@@ -12,4 +14,30 @@
   height: 100%;
   justify-content: flex-end;
   margin-bottom: 1rem;
+}
+
+.column__bar {
+  align-items: center;
+  background-color: $skyblueBackgroundColor;
+  display: flex;
+  height: 4rem;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+  z-index: 20;
+
+  .column__bar__label {
+    color: white;
+    font-size: $headerFontSize;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: 3px;
+    line-height: $headerFontHeight;
+  }
+
+  .column__bar__back-arrow {
+    left: 0;
+    padding: .5rem 1rem;
+    position: absolute;
+  }
 }
