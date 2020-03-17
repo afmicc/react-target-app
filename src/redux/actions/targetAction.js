@@ -11,7 +11,7 @@ export const addTargetError = createAction('ADD_TARGET_ERROR');
 export const addTarget = data =>
   createDispatcher(async location => location, addTargetSuccess, addTargetError, data);
 
-export const createTargetSuccess = createAction('CREATE_TARGET_SUCCESS');
-export const createTargetError = createAction('CREATE_TARGET_ERROR');
-export const createTarget = data =>
-  createDispatcher(targetApi.createTarget, createTargetSuccess, createTargetError, data);
+export const saveTargetSuccess = createAction('CREATE_TARGET_SUCCESS');
+export const saveTargetError = createAction('CREATE_TARGET_ERROR');
+export const saveTarget = data =>
+  createDispatcher(targetApi.saveTarget, saveTargetSuccess, saveTargetError, data);

@@ -4,7 +4,7 @@ import { arrayOf, bool, func, number, oneOfType, string, shape } from 'prop-type
 import './Select.scss';
 
 const Select = ({ title, placeholder, options, valid, value, onChange }) => {
-  const [display, setDisplay] = useState(false);
+  const [display, setDisplay] = useState();
   const initValue = options?.find(opt => opt.key === value);
   const [selected, setSelected] = useState(initValue);
 
