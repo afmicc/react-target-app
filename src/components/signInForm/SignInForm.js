@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import './SignInForm.css';
+import './SignInForm.scss';
 import * as userActions from 'redux/actions/userActions';
 import FormInput from 'components/common/formInput/FormInput';
 import Button from 'components/common/button/Button';

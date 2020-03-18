@@ -1,5 +1,7 @@
+@import 'styles/constants';
+
 .home-column-left {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 0 2px 4px $shadowColor;
   flex-basis: 25%;
   justify-content: center;
   padding-top: 5rem;
@@ -19,19 +21,19 @@
 
 .home-list__option {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .home-list__bullet::before {
-  color: #2fbcf7;
+  color: $skyblueBackgroundColor;
   content: "\2022";
-  font-size: 20px;
+  font-size: $headerFontSize;
   font-weight: bold;
 }
 
 .home-list__label {
-  font-size: 14px;
-  line-height: 26px;
+  font-size: $mediumFontSize;
+  line-height: $mediumFontHeight;
   padding: 0 .5rem;
   text-align: justify;
 }

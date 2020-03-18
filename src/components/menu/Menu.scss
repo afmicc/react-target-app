@@ -1,3 +1,5 @@
+@import 'styles/constants';
+
 .menu {
   align-items: flex-start;
   display: flex;
@@ -23,10 +25,10 @@
 }
 
 a {
-  font-size: 14px;
+  font-size: $mediumFontSize;
   font-style: normal;
   letter-spacing: 2.1px;
-  line-height: 28px;
+  line-height: $mediumFontHeight;
 }
 
 a.active {

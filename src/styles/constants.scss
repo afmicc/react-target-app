@@ -1,0 +1,22 @@
+@import 'functions';
+
+// Colors
+
+$disabledInputColor: #302f2f;
+$errorColor: #eb2a2a;
+$shadowColor: rgba(0, 0, 0, .5);
+$skyblueBackgroundColor: #2fbcf7;
+
+// Fonts
+
+$baseFontSize: $rem-base;
+
+$headerFontSize: rem-calc(20px);
+$subheaderFontSize: rem-calc(18px);
+$mediumFontSize: rem-calc(14px);
+$smallFontSize: rem-calc(12px);
+
+$headerFontHeight: line-height(27px, $headerFontSize);
+$subheaderFontHeight: line-height(32px, $subheaderFontSize);
+$mediumFontHeight: line-height(26px, $mediumFontSize);
+$smallFontHeight: line-height(16px, $smallFontSize);

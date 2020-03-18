@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import './ContactForm.css';
 import Header from 'components/common/header/Header';
 import FormInput from 'components/common/formInput/FormInput';
 import FormTextArea from 'components/common/FormTextArea';

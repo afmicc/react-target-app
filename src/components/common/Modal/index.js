@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import { bool, node, shape } from 'prop-types';
 
-import './Modal.css';
+import './Modal.scss';
 import close from 'assets/close.svg';
 import ModalContext from './ModalContext';
 
 const Modal = ({ config: { visible, component } }) => {
   const { setModal } = useContext(ModalContext);
-  console.log('visible', visible);
 
   if (!visible) return <></>;
   return (

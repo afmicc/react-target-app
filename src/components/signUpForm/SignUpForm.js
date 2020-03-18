@@ -2,11 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import './SignUpForm.css';
+import './SignUpForm.scss';
 import { signUp } from 'redux/actions/userActions';
 import FormInput from 'components/common/formInput/FormInput';
 import FormSelect from 'components/common/formSelect/FormSelect';
 import useForm from 'hooks/useForm';
+import Button from 'components/common/button/Button';
 
 const config = {
   username: { presence: true },
@@ -85,12 +86,7 @@ const SignUpForm = () => {
           />
         </div>
         <div className="form_input">
-          <input
-            type="submit"
-            className="form_input__field form_input__field--color"
-            value="sign up"
-            disabled={!validForm}
-          />
+          <Button disabled={!validForm} submit value="sign up" />
         </div>
       </form>
       <div className="column__line column__line--margin"></div>
