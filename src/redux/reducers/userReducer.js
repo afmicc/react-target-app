@@ -49,7 +49,6 @@ export default createReducer(intialState, {
   [logoutError]: (state, { payload }) => ({
     ...state,
     error:
-      (payload && payload.full_messages && payload.full_messages[0]) ||
-      'An error occured. Please try again.'
+      payload?.full_messages?.[0] || 'An error occurred. Please try again.' 
   })
 });
