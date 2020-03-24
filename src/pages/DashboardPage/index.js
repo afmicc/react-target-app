@@ -15,7 +15,7 @@ const WelcomePage = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProfile(user?.id));
+    user && dispatch(getProfile(user.id));
   }, []);
 
   return (
