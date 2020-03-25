@@ -8,7 +8,7 @@ import football from 'assets/football.svg';
 import music from 'assets/music.svg';
 import world from 'assets/world.svg';
 
-import { getProfile } from 'redux/actions/userActions';
+import { getProfile, logout } from 'redux/actions/userActions';
 
 const WelcomePage = () => {
   const user = useSelector(({ user: { value } }) => value);
@@ -17,6 +17,11 @@ const WelcomePage = () => {
   useEffect(() => {
     user && dispatch(getProfile(user.id));
   }, []);
+
+  const handleLogOut = event => {
+    event.preventDefault();
+    dispatch(logout());
+  };
 
   return (
     <div className="page-container">
@@ -32,7 +37,7 @@ const WelcomePage = () => {
               Edit
             </a>
             <span>/</span>
-            <a className="profile-container__buttons">Logout</a>
+            <a className="profile-container__buttons" onClick={handleLogOut}>Logout</a>
           </div>
           <div className="column__line column__line--margin-top"></div>
         </div>

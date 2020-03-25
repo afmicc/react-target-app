@@ -5,7 +5,9 @@ import {
   signUpSuccess,
   signUpError,
   getProfileError,
-  getProfileSuccess
+  getProfileSuccess,
+  logoutSuccess,
+  logoutError
 } from 'redux/actions/userActions';
 
 const intialState = {
@@ -40,5 +42,13 @@ export default createReducer(intialState, {
     error:
       (payload && payload.full_messages && payload.full_messages[0]) ||
       'An error occured. Please try again.'
+  }),
+  [logoutSuccess]: () => ({
+    intialState
+  }),
+  [logoutError]: (state, { payload }) => ({
+    ...state,
+    error:
+      payload?.full_messages?.[0] || 'An error occurred. Please try again.' 
   })
 });
