@@ -1,7 +1,7 @@
 import { get, post, del, handleResponseAndHeaders } from './apiUtils';
 
 export const signIn = async credentials =>
-  await post('/users/sign_in', { user: credentials }, { handleSuccess: handleResponseAndHeaders });
+  await post('/users/sign_in', { user: credentials }, handleResponseAndHeaders);
 
 export const signUp = async params => await post('/users', { user: params });
 

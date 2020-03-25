@@ -44,7 +44,8 @@ const apiRestCall = async (
   type,
   endpoint,
   body,
-  { handleSuccess = handleResponse, handleError = handleException }
+  handleSuccess = handleResponse,
+  handleError = handleException
 ) => {
   try {
     const response = await fetch(`${baseUrl}/${endpoint}`, {
