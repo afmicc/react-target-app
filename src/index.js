@@ -9,8 +9,12 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
 import configureStore from './redux/configureStore';
+import configureFetchInterceptor from './api/apiInterceptor';
 
 const { store, persistor } = configureStore();
+const initFetchInterceptor = configureFetchInterceptor(store);
+initFetchInterceptor();
+
 ReactDOM.render(
   <ReduxProvider store={store}>
     <PersistGate loading={null} persistor={persistor}>

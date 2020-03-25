@@ -18,7 +18,7 @@ const WelcomePage = () => {
 
   return (
     <div className="page-container">
-      <div className="column home-column-left">
+      <div className="column inside-column-left">
         <img src={smilies} alt="smilies"></img>
         <h1 className="column__header column__header--no-transform column__header--no-bold">
           Welcome to <strong>TARGET</strong>

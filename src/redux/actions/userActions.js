@@ -10,3 +10,8 @@ export const signUpSuccess = createAction('SIGN_UP_USER_SUCCESS');
 export const signUpError = createAction('SIGN_UP_USER_ERROR');
 export const signUp = params =>
   createDispatcher(userApi.signUp, signUpSuccess, signUpError, params);
+
+export const getProfileSuccess = createAction('GET_PROFILE_USER_SUCCESS');
+export const getProfileError = createAction('GET_PROFILE_USER_ERROR');
+export const getProfile = params =>
+  createDispatcher(userApi.getProfile, getProfileSuccess, getProfileError, params);
