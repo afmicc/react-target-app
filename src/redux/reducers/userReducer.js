@@ -7,7 +7,9 @@ import {
   getProfileError,
   getProfileSuccess,
   logoutSuccess,
-  logoutError
+  logoutError,
+  facebookSignInSuccess,
+  facebookSignInError
 } from 'redux/actions/userActions';
 
 const intialState = {
@@ -48,7 +50,14 @@ export default createReducer(intialState, {
   }),
   [logoutError]: (state, { payload }) => ({
     ...state,
-    error:
-      payload?.full_messages?.[0] || 'An error occurred. Please try again.' 
+    error: payload?.full_messages?.[0] || 'An error occurred. Please try again.'
+  }),
+  [facebookSignInSuccess]: (state, { payload: { data, headers } }) => ({
+    value: data,
+    auth: headers
+  }),
+  [facebookSignInError]: (state, { payload }) => ({
+    ...state,
+    error: (payload && payload[0]) || 'An error occured. Please try again.'
   })
 });
