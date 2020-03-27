@@ -6,6 +6,7 @@ import SignUpPage from 'pages/signUp/SignUpPage';
 import ConfirmationSent from 'pages/confirmationSent/ConfirmationSent';
 import DashboardPage from 'pages/DashboardPage';
 import NewTargetPage from 'pages/NewTargetPage';
+import ProfilePage from 'pages/ProfilePage';
 
 import routes from 'constants/routes';
 
@@ -17,5 +18,6 @@ export default [
   { path: routes.confirmationSent, component: ConfirmationSent },
   { path: routes.dashboard, component: DashboardPage, private: true },
   { path: routes.newTarget, component: NewTargetPage, private: true },
+  { path: routes.profile, component: ProfilePage, private: true },
   { component: NotFoundPage }
 ];
