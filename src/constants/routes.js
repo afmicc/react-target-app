@@ -6,6 +6,6 @@ export default {
   welcome: '/welcome',
   confirmationSent: '/confirmation-sent',
   dashboard: '/dashboard',
-  newTarget: '/new-target'
+  newTarget: '/new-target',
   profile: '/profile'
 };
