@@ -1,4 +1,5 @@
 import createReducer from './createReducer';
+import errorManager from './errorManager';
 import { getTopicsSuccess, getTopicsError } from 'redux/actions/topicAction';
 
 const intialState = {
@@ -12,6 +13,6 @@ export default createReducer(intialState, {
   }),
   [getTopicsError]: (state, { payload }) => ({
     ...state,
-    error: (payload && payload[0]) || 'An error occured. Please try again.'
+    error: errorManager(payload)
   })
 });

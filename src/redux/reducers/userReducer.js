@@ -1,4 +1,5 @@
 import createReducer from './createReducer';
+import errorManager from './errorManager';
 import {
   signInUserSuccess,
   signInUserError,
@@ -29,14 +30,12 @@ export default createReducer(intialState, {
   }),
   [signInUserError]: (state, { payload }) => ({
     ...state,
-    error: (payload && payload[0]) || 'An error occured. Please try again.'
+    error: errorManager(payload)
   }),
   [signUpSuccess]: (state, { payload }) => ({ value: payload }),
   [signUpError]: (state, { payload }) => ({
     ...state,
-    error:
-      (payload && payload.full_messages && payload.full_messages[0]) ||
-      'An error occured. Please try again.'
+    error: errorManager(payload)
   }),
   [getProfileSuccess]: (state, { payload: { user } }) => ({
     ...state,
@@ -45,16 +44,14 @@ export default createReducer(intialState, {
   }),
   [getProfileError]: (state, { payload }) => ({
     ...state,
-    error:
-      (payload && payload.full_messages && payload.full_messages[0]) ||
-      'An error occured. Please try again.'
+    error: errorManager(payload)
   }),
   [logoutSuccess]: () => ({
     intialState
   }),
   [logoutError]: (state, { payload }) => ({
     ...state,
-    error: payload?.full_messages?.[0] || 'An error occurred. Please try again.'
+    error: errorManager(payload)
   }),
   [facebookSignInSuccess]: (state, { payload: { data, headers } }) => ({
     value: data,
@@ -62,7 +59,7 @@ export default createReducer(intialState, {
   }),
   [facebookSignInError]: (state, { payload }) => ({
     ...state,
-    error: (payload && payload[0]) || 'An error occured. Please try again.'
+    error: errorManager(payload)
   }),
   [updatePasswordSuccess]: (state, { payload }) => ({
     ...state,
@@ -71,15 +68,13 @@ export default createReducer(intialState, {
   }),
   [updatePasswordError]: (state, { payload }) => ({
     ...state,
-    error:
-      (payload && payload.full_messages && payload.full_messages[0]) ||
-      'An error occured. Please try again.'
+    error: errorManager(payload)
   }),
   [deleteAccountSuccess]: () => ({
     intialState
   }),
   [deleteAccountError]: (state, { payload }) => ({
     ...state,
-    error: payload?.full_messages?.[0] || 'An error occurred. Please try again.'
+    error: errorManager(payload)
   })
 });

@@ -1,4 +1,5 @@
 import createReducer from './createReducer';
+import errorManager from './errorManager';
 import {
   getTargetsSuccess,
   getTargetsError,
@@ -22,7 +23,7 @@ export default createReducer(intialState, {
   }),
   [getTargetsError]: (state, { payload }) => ({
     ...state,
-    error: (payload && payload[0]) || 'An error occured. Please try again.'
+    error: errorManager(payload)
   }),
   [addTargetSuccess]: (state, { payload }) => ({
     ...state,
@@ -30,7 +31,7 @@ export default createReducer(intialState, {
   }),
   [addTargetError]: (state, { payload }) => ({
     ...state,
-    error: (payload && payload[0]) || 'An error occured. Please try again.'
+    error: errorManager(payload)
   }),
   [saveTargetSuccess]: (state, { payload }) => ({
     ...state,
@@ -39,6 +40,6 @@ export default createReducer(intialState, {
   }),
   [saveTargetError]: (state, { payload }) => ({
     ...state,
-    error: (payload && payload[0]) || 'An error occured. Please try again.'
+    error: errorManager(payload)
   })
 });
