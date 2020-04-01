@@ -7,6 +7,8 @@ import * as userActions from 'redux/actions/userActions';
 import FormInput from 'components/common/formInput/FormInput';
 import Button from 'components/common/button/Button';
 
+import routes from 'constants/routes';
+
 const SignInForm = () => {
   const [user, setUser] = useState({ email: '', password: '' });
   const [validation, setValidation] = useState({ email: undefined, password: undefined });
@@ -51,14 +53,14 @@ const SignInForm = () => {
         </div>
         <Button submit value="sign in" disabled={!validForm} />
       </form>
-      <NavLink to="/forgot-password" className="column__forgot-password">
+      <NavLink to={routes.forgotPassword} className="column__forgot-password">
         Forgot your password?
       </NavLink>
       <NavLink to="/facebook-login" className="column__conect-with-facebook">
         connect with facebook
       </NavLink>
       <div className="column__line"></div>
-      <NavLink to="/sign-up" className="column__sign-up">
+      <NavLink to={routes.signUp} className="column__sign-up">
         sign up
       </NavLink>
     </>
