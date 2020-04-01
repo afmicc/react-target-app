@@ -28,7 +28,7 @@ const TargetForm = () => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    if (validTarget) dispatch(saveTarget({ ...data, lat, lng }));
+    validTarget && dispatch(saveTarget({ ...data, lat, lng }));
   };
 
   return (
