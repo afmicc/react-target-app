@@ -11,6 +11,7 @@ import TargetIndicator from './TargetIndicator';
 import Indicator from './Indicator';
 
 const zoom = 15;
+const page = 1;
 
 const TargetsMap = () => {
   const { latitude, longitude } = usePosition(true);
@@ -19,7 +20,7 @@ const TargetsMap = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getTargets(1));
+    dispatch(getTargets(page));
     dispatch(getTopics());
   }, []);
 

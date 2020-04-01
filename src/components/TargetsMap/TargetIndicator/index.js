@@ -13,15 +13,13 @@ TargetIndicator.propTypes = {
     title: string.isRequired,
     topicId: number
   }),
-  topics: arrayOf(
-    shape({
-      topic: shape({
-        id: number.isRequired,
-        label: string.isRequired,
-        icon: string
-      })
+  topics: arrayOf({
+    topic: shape({
+      id: number.isRequired,
+      label: string.isRequired,
+      icon: string
     })
-  )
+  })
 };
 
 export default memo(TargetIndicator);
