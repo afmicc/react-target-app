@@ -12,6 +12,18 @@
   justify-content: center;
   transform: translate(0, -50%);
   width: 2rem;
+.map__indicator {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  
+    &__circle {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      transform: translate(0, -50%);
+      width: 2rem;
+   }
 }
 
 .map__indicator__circle--background {
