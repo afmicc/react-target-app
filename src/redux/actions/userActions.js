@@ -20,3 +20,8 @@ export const logoutSuccess = createAction('LOG_OUT_USER_SUCCESS');
 export const logoutError = createAction('LOG_OUT_USER_ERROR');
 export const logout = params =>
   createDispatcher(userApi.logout, logoutSuccess, logoutError, params);
+
+export const facebookSignInSuccess = createAction('FACEBOOK_SIGN_IN_SUCCESS');
+export const facebookSignInError = createAction('FACEBOOK_SIGN_IN_ERROR');
+export const facebookSignIn = token =>
+  createDispatcher(userApi.facebookSignIn, facebookSignInSuccess, facebookSignInError, token);

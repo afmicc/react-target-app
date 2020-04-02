@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 
 import './SignInForm.scss';
 import * as userActions from 'redux/actions/userActions';
@@ -8,6 +9,8 @@ import FormInput from 'components/common/formInput/FormInput';
 import Button from 'components/common/button/Button';
 
 import routes from 'constants/routes';
+
+const facebookAppId = process.env.REACT_APP_FACEBOOK_APP_ID;
 
 const SignInForm = () => {
   const [user, setUser] = useState({ email: '', password: '' });
@@ -27,6 +30,9 @@ const SignInForm = () => {
     event.preventDefault();
     if (validForm) dispatch(userActions.signIn(user));
   };
+
+  const handleFacebookCallback = ({ accessToken }) =>
+    accessToken && dispatch(userActions.facebookSignIn(accessToken));
 
   return (
     <>
@@ -56,9 +62,15 @@ const SignInForm = () => {
       <NavLink to={routes.forgotPassword} className="column__forgot-password">
         Forgot your password?
       </NavLink>
-      <NavLink to="/facebook-login" className="column__conect-with-facebook">
-        connect with facebook
-      </NavLink>
+      <FacebookLogin
+        appId={facebookAppId}
+        callback={handleFacebookCallback}
+        render={({ onClick }) => (
+          <a className="column__conect-with-facebook" onClick={onClick}>
+            connect with facebook
+          </a>
+        )}
+      />
       <div className="column__line"></div>
       <NavLink to={routes.signUp} className="column__sign-up">
         sign up
