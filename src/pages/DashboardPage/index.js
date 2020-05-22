@@ -9,6 +9,7 @@ import music from 'assets/music.svg';
 import world from 'assets/world.svg';
 
 import { getProfile, logout } from 'redux/actions/userActions';
+import TargetsMap from 'components/TargetsMap';
 
 const WelcomePage = () => {
   const user = useSelector(({ user: { value } }) => value);
@@ -65,7 +66,9 @@ const WelcomePage = () => {
           <img src={smilies} alt="smilies" className="column__footer" />
         </div>
       </div>
-      <div className="column home-column-right">map here!</div>
+      <div className="column home-column-right">
+        <TargetsMap />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import fetchIntercept from 'fetch-intercept';
 import { headers } from './apiUtils';
 
+const baseUrl = process.env.REACT_APP_API_URL;
+
 export default store => () => {
   const unsubscribeFromStore = store.subscribe(() => {
     const { user: { auth } } = store.getState();
@@ -15,7 +17,8 @@ export default store => () => {
 const register = auth => {
   fetchIntercept.register({
     request: function(url, config) {
-      config.headers = headers(auth);
+      if (url.startsWith(baseUrl)) config.headers = headers(auth);
+
       return [url, config];
     },
 

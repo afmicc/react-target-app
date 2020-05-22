@@ -6,6 +6,7 @@ import './WelcomePage.scss';
 import routes from 'constants/routes';
 import smilies from 'assets/smilies.svg';
 import Button from 'components/common/button/Button';
+import TargetsMap from 'components/TargetsMap';
 
 const WelcomePage = () => {
   const authenticated = useSelector(({ user: auth }) => auth);
@@ -42,7 +43,9 @@ const WelcomePage = () => {
         </div>
         <Button value="OK; GOT IT!" onClick={handleClick} />
       </div>
-      <div className="column home-column-right">map here!</div>
+      <div className="column home-column-right">
+        <TargetsMap />
+      </div>
     </div>
   );
 };
