@@ -9,6 +9,7 @@ $skyblueBackgroundColor: #2fbcf7;
 $indicatorCircleColor: rgba(239, 198, 56, .7);
 $indicatorLabelColor: rgba(0, 0, 0, .7);
 $indicatorLabelTextColor: #fff;
+$selectOptionHoverColor: #f4f4f4;
 
 // Fonts
 
@@ -18,8 +19,12 @@ $headerFontSize: rem-calc(20px);
 $subheaderFontSize: rem-calc(18px);
 $mediumFontSize: rem-calc(14px);
 $smallFontSize: rem-calc(12px);
+$inputFontSize: rem-calc(13px);
+$placeholderFontSize: rem-calc(11px);
 
 $headerFontHeight: line-height(27px, $headerFontSize);
 $subheaderFontHeight: line-height(32px, $subheaderFontSize);
 $mediumFontHeight: line-height(26px, $mediumFontSize);
 $smallFontHeight: line-height(16px, $smallFontSize);
+$inputFontHeight: line-height(18px, $inputFontSize);
+$placeholderFontHeight: line-height(15px, $placeholderFontSize);

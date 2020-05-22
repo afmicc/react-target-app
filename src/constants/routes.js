@@ -5,5 +5,6 @@ export default {
   contact: '/contact',
   welcome: '/welcome',
   confirmationSent: '/confirmation-sent',
-  dashboard: '/dashboard'
+  dashboard: '/dashboard',
+  newTarget: '/new-target'
 };

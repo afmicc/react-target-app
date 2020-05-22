@@ -1,15 +1,16 @@
 import React, { memo } from 'react';
-import { number, shape, node } from 'prop-types';
+import { number, shape, node, func } from 'prop-types';
 import GoogleMapReact from 'google-map-react';
 
-const GoogleMap = ({ coords: { latitude: lat, longitude: lng }, zoom, children }) =>
-  lat && lng && zoom ? (
-    <GoogleMapReact defaultCenter={{ lat, lng }} defaultZoom={zoom}>
-      {children}
-    </GoogleMapReact>
-  ) : (
-    <></>
-  );
+const GoogleMap = ({ coords: { latitude: lat, longitude: lng }, zoom, onClick, children }) => (
+  <GoogleMapReact
+    center={{ lat, lng }}
+    zoom={zoom}
+    onClick={({ lat, lng }) => onClick({ lat, lng })}
+  >
+    {children}
+  </GoogleMapReact>
+);
 
 GoogleMap.propTypes = {
   coords: shape({
@@ -17,6 +18,7 @@ GoogleMap.propTypes = {
     longitude: number.isRequired
   }),
   zoom: number.isRequired,
+  onClick: func,
   children: node.isRequired
 };
 

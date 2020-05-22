@@ -62,6 +62,9 @@ const runValidations = (fieldName, fieldValidations, fields, fieldsTouched) => {
       case 'regex':
         if (params) valid = valid && !!fieldValue.match(params);
         break;
+      case 'number':
+        if (params) valid = valid && !isNaN(fieldValue);
+        break;
       default:
         valid = false;
         break;
