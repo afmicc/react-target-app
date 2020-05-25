@@ -64,4 +64,6 @@ export const get = async (endpoint, ...params) => await apiRestCall('GET', endpo
 
 export const post = async (endpoint, ...params) => await apiRestCall('POST', endpoint, ...params);
 
+export const put = async (endpoint, ...params) => await apiRestCall('PUT', endpoint, ...params);
+
 export const del = async (endpoint, ...params) => await apiRestCall('DELETE', endpoint, ...params);

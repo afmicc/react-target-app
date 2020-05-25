@@ -25,3 +25,13 @@ export const facebookSignInSuccess = createAction('FACEBOOK_SIGN_IN_SUCCESS');
 export const facebookSignInError = createAction('FACEBOOK_SIGN_IN_ERROR');
 export const facebookSignIn = token =>
   createDispatcher(userApi.facebookSignIn, facebookSignInSuccess, facebookSignInError, token);
+
+export const updatePasswordSuccess = createAction('UPDATE_PASSWORD_SUCCESS');
+export const updatePasswordError = createAction('UPDATE_PASSWORD_ERROR');
+export const updatePassword = params =>
+  createDispatcher(userApi.updatePassword, updatePasswordSuccess, updatePasswordError, params);
+
+export const deleteAccountSuccess = createAction('DELETE_ACCOUNT_SUCCESS');
+export const deleteAccountError = createAction('DELETE_ACCOUNT_ERROR');
+export const deleteAccount = params =>
+  createDispatcher(userApi.deleteAccount, deleteAccountSuccess, deleteAccountError, params);

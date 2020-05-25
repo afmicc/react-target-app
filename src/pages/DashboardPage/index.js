@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import './DashboardPage.scss';
 import smilies from 'assets/smilies.svg';
@@ -10,6 +11,7 @@ import world from 'assets/world.svg';
 
 import { getProfile, logout } from 'redux/actions/userActions';
 import withMap from 'components/HOCs/withMap';
+import routes from 'constants/routes';
 
 const WelcomePage = () => {
   const user = useSelector(({ user: { value } }) => value);
@@ -33,11 +35,16 @@ const WelcomePage = () => {
         </div>
         <span className="profile-container__username">{user?.username || <>&nbsp;</>}</span>
         <div>
-          <a className="profile-container__buttons profile-container__buttons--edit-color">
+          <NavLink
+            className="profile-container__buttons profile-container__buttons--edit-color"
+            to={routes.profile}
+          >
             Edit
-          </a>
+          </NavLink>
           <span>/</span>
-          <a className="profile-container__buttons" onClick={handleLogOut}>Logout</a>
+          <a className="profile-container__buttons" onClick={handleLogOut}>
+            Logout
+          </a>
         </div>
         <div className="column__line column__line--margin-top"></div>
       </div>

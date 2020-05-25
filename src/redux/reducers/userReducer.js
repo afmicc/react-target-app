@@ -9,7 +9,11 @@ import {
   logoutSuccess,
   logoutError,
   facebookSignInSuccess,
-  facebookSignInError
+  facebookSignInError,
+  updatePasswordSuccess,
+  updatePasswordError,
+  deleteAccountSuccess,
+  deleteAccountError
 } from 'redux/actions/userActions';
 
 const intialState = {
@@ -59,5 +63,23 @@ export default createReducer(intialState, {
   [facebookSignInError]: (state, { payload }) => ({
     ...state,
     error: (payload && payload[0]) || 'An error occured. Please try again.'
+  }),
+  [updatePasswordSuccess]: (state, { payload }) => ({
+    ...state,
+    value: payload,
+    error: undefined
+  }),
+  [updatePasswordError]: (state, { payload }) => ({
+    ...state,
+    error:
+      (payload && payload.full_messages && payload.full_messages[0]) ||
+      'An error occured. Please try again.'
+  }),
+  [deleteAccountSuccess]: () => ({
+    intialState
+  }),
+  [deleteAccountError]: (state, { payload }) => ({
+    ...state,
+    error: payload?.full_messages?.[0] || 'An error occurred. Please try again.'
   })
 });
