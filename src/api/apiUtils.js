@@ -3,11 +3,12 @@ import { camelizeKeys, decamelizeKeys } from 'humps';
 const baseUrl = process.env.REACT_APP_API_URL;
 
 export async function handleResponse(response) {
-  if (response.ok) return camelizeKeys(await response.json());
-  if (response.status >= 400 && response.status < 500) {
-    const error = camelizeKeys(await response.json());
-    throw error;
+  if (response) {
+    const camelizedResponse = camelizeKeys(await response.json());
+    if (response.ok) return camelizedResponse;
+    if (response.status >= 400 && response.status < 500) throw camelizedResponse;
   }
+
   throw new Error('Network response was not ok.');
 }
 

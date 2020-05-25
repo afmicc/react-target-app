@@ -12,7 +12,7 @@ import { saveTarget } from 'redux/actions/targetAction';
 const config = {
   title: { presence: true },
   radius: { presence: true, number: true },
-  topic_id: { presence: true, number: true }
+  topicId: { presence: true, number: true }
 };
 
 const TargetForm = () => {
@@ -65,9 +65,9 @@ const TargetForm = () => {
           title="SELECT A TOPIC"
           placeholder="What do you want to talk about?"
           options={topics}
-          value={data.topic_id}
-          onChange={handleFieldChange('topic_id')}
-          valid={validation.topic_id}
+          value={data.topicId}
+          onChange={handleFieldChange('topicId')}
+          valid={validation.topicId}
         />
       </div>
       <div className="form_input form__footer">
