@@ -1,4 +1,5 @@
 import createReducer from './createReducer';
+import errorManager from './errorManager';
 import {
   contactAdministratorsError,
   contactAdministratorsSuccess
@@ -15,6 +16,6 @@ export default createReducer(intialState, {
   }),
   [contactAdministratorsError]: (state, { payload }) => ({
     ...state,
-    error: (payload && payload[0]) || 'An error occured. Please try again.'
+    error: errorManager(payload)
   })
 });
