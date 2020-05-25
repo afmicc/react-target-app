@@ -1,9 +1,11 @@
+import { camelizeKeys, decamelizeKeys } from 'humps';
+
 const baseUrl = process.env.REACT_APP_API_URL;
 
 export async function handleResponse(response) {
-  if (response.ok) return response.json();
+  if (response.ok) return camelizeKeys(await response.json());
   if (response.status >= 400 && response.status < 500) {
-    const error = await response.json();
+    const error = camelizeKeys(await response.json());
     throw error;
   }
   throw new Error('Network response was not ok.');
@@ -51,7 +53,7 @@ const apiRestCall = async (
     const response = await fetch(`${baseUrl}/${endpoint}`, {
       method: type,
       headers: { 'content-type': 'application/json' },
-      body: body && JSON.stringify(body)
+      body: body && JSON.stringify(decamelizeKeys(body))
     });
 
     return handleSuccess(response);
