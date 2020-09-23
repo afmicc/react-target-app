@@ -6,7 +6,7 @@ export const signIn = async credentials =>
 export const facebookSignIn = async token =>
   await post(
     '/users/facebook',
-    { access_token: token },
+    { accessToken: token },
     { handleSuccess: handleResponseAndHeaders }
   );
 

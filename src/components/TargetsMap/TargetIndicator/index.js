@@ -3,7 +3,7 @@ import { arrayOf, number, shape, string } from 'prop-types';
 
 import Indicator from '../Indicator';
 
-const TargetIndicator = ({ target: { title, topic_id: topicId }, topics }) => {
+const TargetIndicator = ({ target: { title, topicId }, topics }) => {
   const { topic: { icon, label } } = topics?.find(x => x.topic.id === topicId);
   return <Indicator title={title} icon={icon} label={label} background />;
 };

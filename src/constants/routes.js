@@ -7,5 +7,6 @@ export default {
   confirmationSent: '/confirmation-sent',
   dashboard: '/dashboard',
   newTarget: '/new-target',
-  profile: '/profile'
+  profile: '/profile',
+  forgotPassword: '/forgot-password'
 };
